@@ -1,0 +1,31 @@
+<app-breadcrumb [title]="'Autores'"></app-breadcrumb>
+<div class="row">
+    <div class="col-12">
+     <button class="btn btn-success mb-3" (click)="create()">
+        Agregar <i class="fa fa-plus"></i>
+      </button>
+      </div>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Fecha de Nacimiento</th>
+        <th scope="col">Email</th>
+        <th scope="col">Ciudad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <th scope="row">{{author.id}}</th>
+        <td>{{author.firstName}}</td>
+        <td>{{author.lastName}}</td>
+        <td>{{author.dob}}</td>
+        <td>{{author.email}}</td>
+        <td>{{author.city}}</td>
+      </tr>
+    
+    </tbody>
+  </table>

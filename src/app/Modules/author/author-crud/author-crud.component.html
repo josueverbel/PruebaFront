@@ -1,0 +1,173 @@
+
+  <div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+          <form [formGroup]="form">
+            <div class="row">
+              <div class="modal-header" style="min-width: 100%" >
+                <h4 class="modal-title" id="modal-basic-title">{{author? 'Datos de Autor' : 'Registro de Autor' }}</h4>
+                <button
+                  type="button"
+                  *ngIf="!enabled"
+                  style="
+                    right: 0 important;
+                    max-width: 30px;
+                    text-align: center;
+                    padding: 0.5rem 0.5rem;
+                  "
+                  class="btn btn-primary"
+                  (click)="enableForm(true)"
+                >
+                  <i
+                    style="margin-right: 5px !important"
+                    class="fa fa-pencil"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <button
+                  type="button"
+                  *ngIf="enabled && author"
+                  style="
+                    right: 0 important;
+                    max-width: 30px;
+                    text-align: center;
+                    padding: 0.5rem 0.5rem;
+                  "
+                  class="btn btn-warning"
+                  (click)="enableForm(false)"
+                >
+                  <i
+                    style="margin-right: 5px !important"
+                    class="fa fa-window-close-o"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+      
+              <div class="col-12 mt-4">
+                
+      
+                
+                <div *ngIf="enabled || author">
+                  <div class="form-group">
+                    <label>Nombres</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="FirstName"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }"
+                      autofocus
+                    />
+                    <span *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+                      <div
+                        *ngFor="let error of getControlErrors('FirstName')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Apellidos</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="LastName"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.LastName.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('LastName')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div >
+                    <app-date 
+                    [minDate] = "1900-01-01"
+                    [control] = "f.Dob"
+                    [maxDate] = "date"
+                    [label] = "'Fecha de Nacimiento'"
+                     ></app-date>
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="Email"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.Email.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('Email')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Ciudad</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="City"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.City.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.City.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('City')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                 
+                
+                  
+                  
+                 
+                  
+                  
+                  <div class="mt-5 d-flex justify-content-center" *ngIf="enabled">
+                    <button (click)="onSave()" class="btn btn-success ml-1 btn-sm">
+                      <i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+  
+  </div>
+
+
+  
+  

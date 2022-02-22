@@ -1,0 +1,113 @@
+// Bootstrap and its default variables
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "./assets/styles/variables";
+@import "../node_modules/compass-mixins/lib/compass";
+@import "../node_modules/compass-mixins/lib/animate";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "~font-awesome/css/font-awesome.css";
+
+/// Mixins
+@import "./assets/styles/mixins/background";
+@import "./assets/styles/mixins/animation";
+@import "./assets/styles/mixins/buttons";
+@import "./assets/styles/mixins/misc";
+@import "./assets/styles/mixins/cards";
+
+// Components
+@import "./assets/styles/buttons";
+@import "./assets/styles/cards";
+@import "./assets/styles/nav";
+@import "./assets/styles/layouts";
+@import "./assets/styles/responsive";
+@import "./assets/styles/misc";
+@import "./assets/styles/utilities";
+
+// Utilities
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap");
+@import "~ngx-toastr/toastr";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+@for $i from 1 through 100 {
+  .h-#{$i} {
+    height: unquote($i + "%") !important;
+  }
+}
+
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: unquote($i + "%") !important;
+  }
+}
+
+@for $i from 1 through 10 {
+  .b-#{$i} {
+    border-width: unquote($i + "px !important");
+  }
+}
+
+@for $i from 1 through 100 {
+  .mb-#{$i} {
+    margin-bottom: unquote($i + "%") !important;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.opacity {
+  background: rgb(2, 2, 2);
+  opacity: 0.1;
+  padding: 50%;
+  z-index: 50;
+  position: absolute;
+}
+
+.loading {
+  z-index: 100;
+  position: absolute;
+  top: 30%;
+  right: 35%;
+}
+
+// Header Columns
+.ag-header-group-cell-label,
+.ag-header-cell-label {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #4dae52;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #66bb6a;
+}
+
+.mydrp,
+.mydrp .headerclearbtn,
+.mydrp .headerokbtn {
+  border: 1px solid rgb(165, 161, 161) !important;
+}
+.mydrp .selector {
+  width: 100% !important;
+}
+
+.mydpr {
+  width: 100% !important;
+}
+.mt-2 {
+margin-top: 20px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

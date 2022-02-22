@@ -1,0 +1,31 @@
+<app-breadcrumb [title]="'Libros'"></app-breadcrumb>
+<div class="row">
+    <div class="col-12">
+     <button class="btn btn-success mb-3" (click)="create()">
+        Agregar <i class="fa fa-plus"></i>
+      </button>
+      </div>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">TiTulo</th>
+        <th scope="col">Año</th>
+        <th scope="col">Num Pag</th>
+        <th scope="col">Editorial</th>
+        <th scope="col">Autor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <th scope="row">{{book.id}}</th>
+        <td>{{book.title}}</td>
+        <td>{{book.year}}</td>
+        <td>{{book.pageCount}}</td>
+        <td>{{book.editorial?.name}}</td>
+        <td>{{book.author?.fullName}}</td>
+      </tr>
+    
+    </tbody>
+  </table>

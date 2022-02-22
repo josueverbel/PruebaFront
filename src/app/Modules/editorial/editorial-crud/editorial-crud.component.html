@@ -1,0 +1,154 @@
+
+  <div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+          <form [formGroup]="form">
+            <div class="row">
+              <div class="modal-header" style="min-width: 100%" >
+                <h4 class="modal-title" id="modal-basic-title">{{editorial? 'Datos de Editorial' : 'Registro de Editorial' }}</h4>
+                
+               
+              </div>
+      
+              <div class="col-12 mt-4">
+                
+      
+                
+                <div *ngIf="enabled || editorial">
+                  <div class="form-group">
+                    <label>Nombre</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="Name"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.Name.errors }"
+                      autofocus
+                    />
+                    <span *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                      <div
+                        *ngFor="let error of getControlErrors('Name')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Direccion</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="Address"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.Address.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.Address.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('Address')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                 
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="Email"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.Email.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('Email')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Phone</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="Phone"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.Phone.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.Phone.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('Phone')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Cantidad Maxima de Libros</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="MaxCount"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.MaxCount.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.MaxCount.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('MaxCount')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                
+                  
+                  
+                 
+                  
+                  
+                  <div class="mt-5 d-flex justify-content-center" *ngIf="enabled">
+                    <button (click)="onSave()" class="btn btn-success ml-1 btn-sm">
+                      <i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+  
+  </div>
+
+
+  
+  

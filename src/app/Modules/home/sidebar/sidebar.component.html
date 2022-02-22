@@ -1,0 +1,54 @@
+<nav class="sidebar sidebar-offcanvas mt-3" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <div class="nav-link">
+        <div class="user-wrapper">
+          <div class="profile-image">
+            <img src="../../../../assets/img/face1.jpg" />
+          </div>
+          <div class="text-wrapper">
+            <p class="profile-name text-capitalize">
+              Josue Verbel
+              <a
+                
+                placement="right"
+                ngbTooltip="Ir al perfil"
+                ><i class="fa fa-external-link"></i
+              ></a>
+            </p>
+            <div>
+              <small class="designation text-muted">Admin</small>
+              <span class="status-indicator online"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+<!---->
+    <li class="nav-item" *ngFor="let menu of menus">
+      <a class="nav-link" [routerLink]="menu.link" routerLinkActive="active">
+        <i [class]="menu.icon"></i>
+        <span class="menu-title ml-2">{{menu.name}}</span>
+      </a>
+    </li>
+    <!--n¿-->
+   
+    
+    <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/zones" routerLinkActive="active">
+        <i class="fa fa-map"></i>
+        <span class="menu-title ml-2">Zonas</span>
+      </a>
+    </li> -->
+  
+  
+   
+ 
+  <!--   <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/config" routerLinkActive="active">
+        <i class="fa fa-cog"></i>
+        <span class="menu-title ml-2">Configuración</span>
+      </a>
+    </li> -->
+  </ul>
+</nav>

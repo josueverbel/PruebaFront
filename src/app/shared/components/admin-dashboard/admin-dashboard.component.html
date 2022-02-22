@@ -1,0 +1,200 @@
+
+
+  <div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-2x fa-pause text-info"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">En espera</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ current?.Espera ? current?.Espera : 0 }}
+                </h3>
+                <button class="btn"  style="padding: 5px; margin-left: 2px;" *ngIf="(current?.Espera  > 0)"  data-target=".bd-example-modal-lg" >
+                  <span class="fa fa-2x text-info fa-info-circle" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Turnos en espera
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-bullhorn fa-2x text-warning"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">Llamando</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ llamados ? llamados : 0 }}
+                </h3>
+                <button class="btn"  style="padding: 5px; margin-left: 2px;" *ngIf="(current?.Espera  > 0)"  data-target=".bd-example-modal-lg" >
+                  <span class="fa fa-2x text-info fa-info-circle" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Turnos en llamado
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-user fa-2x text-success"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">En atención</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ current?.Atencion ? current?.Atencion : 0 }}
+                </h3>
+                <button class="btn"  style="padding: 5px; margin-left: 2px;" *ngIf="(current?.Espera  > 0)"  data-target=".bd-example-modal-lg" >
+                  <span class="fa fa-2x text-info fa-info-circle" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Turnos en atención
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-retweet fa-2x text-info"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">Transferidos</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ current?.Transferidos ? current?.Transferidos : 0 }}
+                </h3>
+                <button class="btn"  style="padding: 5px; margin-left: 2px;" *ngIf="(current?.Espera  > 0)"  data-target=".bd-example-modal-lg" >
+                  <span class="fa fa-2x text-info fa-info-circle" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Turnos Transferidos
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-2x fa-close text-danger"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">Cancelado</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ current?.Cancelados ? current?.Cancelados : 0 }}
+                </h3>
+                <button class="btn"  style="padding: 5px; margin-left: 2px;" *ngIf="(current?.Espera  > 0)"  data-target=".bd-example-modal-lg" >
+                  <span class="fa fa-2x text-info fa-info-circle" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Turnos cancelados
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-2x fa-check text-primary"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">Finalizado</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ current?.Finalizados ? current?.Finalizados : 0 }}
+                </h3>
+                <button class="btn"  style="padding: 5px; margin-left: 2px;" *ngIf="(current?.Espera  > 0)"  data-target=".bd-example-modal-lg" >
+                  <span class="fa fa-2x text-info fa-info-circle" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Finalizados
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-2x fa-check text-primary"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">Completados</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ completados ? completados : 0 }}
+                </h3>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Completados
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <i class="fa fa-2x fa-plus-square text-dark"></i>
+            </div>
+            <div class="float-right">
+              <p class="mb-0 text-right">Total</p>
+              <div class="fluid-container">
+                <h3 class="font-weight-medium text-right mb-0">
+                  {{ current?.Total ? current?.Total : 0 }}
+                </h3>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0">
+            Total turnos
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

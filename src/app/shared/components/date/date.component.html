@@ -1,0 +1,23 @@
+    <div [fxFlex]="showChange? '75':'100'">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{label}}</mat-label>
+          <input
+            matInput
+            [min]="minDate" 
+            [max]="maxDate"
+            (dateChange)="changeDate($event)"
+            [matDatepicker]="picker"
+            [value]="initialValue"
+            
+            readonly
+          />
+         <mat-datepicker-toggle *ngIf="!showChange"
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker [startAt]="initialValue"></mat-datepicker>
+        
+        </mat-form-field>
+    </div>
+    <div fxFlex="25"  *ngIf="showChange"><button class="mt-1" mat-raised-button color="primary" (click)="picker.open()">Cambiar</button></div>
+    

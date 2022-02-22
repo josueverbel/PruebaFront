@@ -1,0 +1,204 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Registro de Libros</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+          <form [formGroup]="form">
+            <div class="row">
+              <div class="modal-header" style="min-width: 100%" >
+                <h4 class="modal-title" id="modal-basic-title">{{book? 'Datos de libro' : 'Registro de libro' }}</h4>
+                <button
+                  type="button"
+                  *ngIf="!enabled"
+                  style="
+                    right: 0 important;
+                    max-width: 30px;
+                    text-align: center;
+                    padding: 0.5rem 0.5rem;
+                  "
+                  class="btn btn-primary"
+                  (click)="enableForm(true)"
+                >
+                  <i
+                    style="margin-right: 5px !important"
+                    class="fa fa-pencil"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <button
+                  type="button"
+                  *ngIf="enabled && book"
+                  style="
+                    right: 0 important;
+                    max-width: 30px;
+                    text-align: center;
+                    padding: 0.5rem 0.5rem;
+                  "
+                  class="btn btn-warning"
+                  (click)="enableForm(false)"
+                >
+                  <i
+                    style="margin-right: 5px !important"
+                    class="fa fa-window-close-o"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+      
+              <div class="col-12 mt-4">
+                
+      
+                
+                <div *ngIf="enabled || book">
+                  <div class="form-group">
+                    <label>Titulo</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="Title"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.Title.errors }"
+                      autofocus
+                    />
+                    <span *ngIf="submitted && f.Title.errors" class="invalid-feedback">
+                      <div
+                        *ngFor="let error of getControlErrors('Title')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Año</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="Year"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.Year.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.Year.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('Year')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Cantidad Paginas</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [readonly]="!enabled"
+                      formControlName="PageCount"
+                      autocomplete="off"
+                      [ngClass]="{ 'is-invalid': submitted && f.PageCount.errors }"
+                      autofocus
+                    />
+                    <span
+                      *ngIf="submitted && f.PageCount.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngFor="let error of getControlErrors('PageCount')"
+                        class="alert alert-danger"
+                      >
+                        {{ error }} *
+                      </div>
+                    </span>
+                  </div>
+                  <div class="form-group" *ngIf="book">
+                    <label>Editorial</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      readonly
+                      [value]="book?.Editorial?.Name"
+                      autofocus
+                    />
+                  </div>
+                  <div class="form-group" *ngIf="book">
+                    <label>Autor</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      readonly
+                      [value]="book?.Author?.firstName"
+                      autocomplete="off"
+                      autofocus
+                    />
+                  </div>
+                  
+                  <div class="mb-3" *ngIf="!book">
+                    <label for="zone">Seleccione Editorial </label>
+                    <ng-multiselect-dropdown-angular7
+                      [placeholder]="'Selecciona una Editorial'"
+                      [settings]="dropdownSettings"
+                      [data]="editorials"
+                      (onSelect)="onItemEditorialSelect($event)"
+                      formControlName="Editorial"
+                    >
+                    </ng-multiselect-dropdown-angular7>
+                    
+                  </div>
+                  <span
+  *ngIf="submitted && f.Editorial.errors" style="color: #dc3545;"
+  > <div
+  *ngFor="let error of getControlErrors('Editorial')"
+  class="alert alert-danger"
+>
+  {{ error }} *
+</div> </span>
+                  
+                  <div *ngIf="!book" class="mb-3">
+                    <label for="Author">Seleccione el Author </label>
+                    <ng-multiselect-dropdown-angular7
+                      *ngIf="!loading"
+                      [settings]="dropdownAuthorSettings"
+                      [placeholder]="'Selecciona un Author'"
+                      [data]="authors"
+                      (onSelect)="onItemAuthorSelect($event)"
+                      formControlName="Author"
+                      [ngClass]="{ 'is-invalid': submitted && f.Author.errors }"
+                    >
+                    </ng-multiselect-dropdown-angular7>
+                    <span
+                    *ngIf="submitted && f.Author.errors" style="color: #dc3545;"
+                    > <div
+                    *ngFor="let error of getControlErrors('Author')"
+                    class="alert alert-danger"
+                  >
+                    {{ error }} *
+                  </div> </span>
+                  </div>
+                  <div class="mt-5 d-flex justify-content-center" *ngIf="enabled">
+                    <button (click)="onSave()" class="btn btn-success ml-1 btn-sm">
+                      <i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+  
+  </div>
+
+
+  
+  
